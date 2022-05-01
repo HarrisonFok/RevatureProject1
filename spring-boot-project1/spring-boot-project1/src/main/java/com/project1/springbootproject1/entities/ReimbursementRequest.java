@@ -16,8 +16,8 @@ import java.util.List;
 @AllArgsConstructor
 public class ReimbursementRequest {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "reimbursementID", columnDefinition = "AUTO_INCREMENT")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    // @Column(name = "reimbursementID", columnDefinition = "AUTO_INCREMENT")
     private int reimbursementID;
 
     @Column(name = "dateOfPurchase")

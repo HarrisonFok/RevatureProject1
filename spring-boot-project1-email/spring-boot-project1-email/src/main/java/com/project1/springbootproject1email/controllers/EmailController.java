@@ -24,7 +24,7 @@ public class EmailController {
 
     @GetMapping
     public ResponseEntity getAllEmails() {
-        return ResponseEntity.ok(emailService.getAllEmails());
+        return emailService.getAllEmails();
     }
 
     @PostMapping
