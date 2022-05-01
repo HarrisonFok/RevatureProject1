@@ -16,8 +16,8 @@ import java.util.Date;
 public class Email {
 
     @Id
-    @Column(name = "emailID", columnDefinition = "AUTO_INCREMENT")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@Column(name = "emailID", columnDefinition = "AUTO_INCREMENT")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int emailID;
 
     @Column(name = "fromEmail")

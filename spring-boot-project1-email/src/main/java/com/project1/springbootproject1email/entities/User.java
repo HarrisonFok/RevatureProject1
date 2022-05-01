@@ -16,8 +16,8 @@ import java.util.List;
 public class User {
 
     @Id
-    @Column(name = "userID", columnDefinition = "AUTO_INCREMENT")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@Column(name = "userID", columnDefinition = "AUTO_INCREMENT")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int userID;
 
     @Column(name = "firstName")
