@@ -1,0 +1,9 @@
+services:
+  reimbursement:
+    image: mysql/spring-boot-project1
+    ports:
+      - 8080:8080
+  emails:
+    image: mysql/spring-boot-project1-email
+    ports:
+      - 8081:8081
