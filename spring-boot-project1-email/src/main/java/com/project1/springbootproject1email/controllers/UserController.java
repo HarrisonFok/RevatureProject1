@@ -1,6 +1,7 @@
 package com.project1.springbootproject1email.controllers;
 
 import com.project1.springbootproject1email.entities.User;
+import com.project1.springbootproject1email.exceptions.InvalidOperationException;
 import com.project1.springbootproject1email.repositories.UserRepository;
 import com.project1.springbootproject1email.services.UserService;
 import lombok.Setter;
@@ -33,7 +34,12 @@ public class UserController {
 //            e.printStackTrace();
 //            return ResponseEntity.internalServerError().body("Error adding a user");
 //        }
-        boolean success = userService.addUser(user);
+        boolean success = false;
+        try {
+            success = userService.addUser(user);
+        } catch (InvalidOperationException e) {
+            e.printStackTrace();
+        }
         if (success) {
             return ResponseEntity.created(new URI("http://localhost/users/" + user.getUserID())).build();
         } else {

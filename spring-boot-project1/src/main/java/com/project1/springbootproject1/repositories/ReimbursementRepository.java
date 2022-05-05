@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface ReimbursementRepository extends JpaRepository<ReimbursementRequest, Integer> {
-    List<ReimbursementRequest> findAllByStatus(String status);
+//    List<ReimbursementRequest> findAllByStatus(String status);
     List<ReimbursementRequest> findAllByUserID(int userID);
     List<ReimbursementRequest> findAllByReimbursementID(int reimbursementID);
 

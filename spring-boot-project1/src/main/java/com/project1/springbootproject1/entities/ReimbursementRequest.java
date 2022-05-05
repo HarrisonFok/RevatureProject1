@@ -35,9 +35,12 @@ public class ReimbursementRequest {
     @Column(name = "userID")
     private int userID;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "reimbursementId")
-    private List<Item> items;
+    @Column(name = "managerID")
+    private Integer managerID;
+
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @JoinColumn(name = "reimbursementId")
+//    private List<Item> items;
 
     public boolean isValidAction(String action) {
         return action.equalsIgnoreCase("approve") || action.equalsIgnoreCase("decline") || action.equalsIgnoreCase("reassign");

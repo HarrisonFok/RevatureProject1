@@ -20,10 +20,6 @@ public class SpringBootProject1EmailApplication {
 
 	@Bean
 	CommandLineRunner runner() {
-		return args -> {
-			for (User u: userRepository.findAllByUserID(1)) {
-				System.out.println(u);
-			}
-		};
+		return args -> { for (User u: userRepository.findAllByUserID(1)) { System.out.println(u); } };
 	}
 }

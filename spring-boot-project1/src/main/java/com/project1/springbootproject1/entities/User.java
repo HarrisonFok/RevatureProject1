@@ -46,7 +46,7 @@ public class User {
         return this.getRole().equalsIgnoreCase("manager");
     }
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "userID")
-    private List<ReimbursementRequest> reimbursementRequestList;
+//    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @JoinColumn(name = "userID")
+//    private List<ReimbursementRequest> reimbursementRequestList;
 }
