@@ -47,6 +47,6 @@ public class User {
     }
 
 //    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    @JoinColumn(name = "userID")
-//    private List<Email> reimbursementRequestList;
+//    @JoinColumn(name = "fromEmail")
+//    private List<Email> emailList;
 }

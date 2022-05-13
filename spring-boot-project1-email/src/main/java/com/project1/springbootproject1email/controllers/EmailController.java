@@ -1,6 +1,7 @@
 package com.project1.springbootproject1email.controllers;
 
 import com.project1.springbootproject1email.entities.Email;
+import com.project1.springbootproject1email.exceptions.InvalidOperationException;
 import com.project1.springbootproject1email.repositories.EmailRepository;
 import com.project1.springbootproject1email.services.EmailService;
 import lombok.Setter;
@@ -28,7 +29,7 @@ public class EmailController {
     }
 
     @PostMapping
-    public ResponseEntity sendEmail(@RequestBody Email email) {
+    public ResponseEntity sendEmail(@RequestBody Email email) throws InvalidOperationException {
 //        try {
 //            emailRepository.save(email);
 //            return ResponseEntity.created(new URI("http://localhost/emails/" + email.getEmailID())).build();

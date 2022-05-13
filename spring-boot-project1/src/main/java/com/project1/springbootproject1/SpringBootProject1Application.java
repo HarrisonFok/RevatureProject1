@@ -25,15 +25,15 @@ public class SpringBootProject1Application {
 
 	@Bean
 	CommandLineRunner runner() {
-//		return args -> {
-//			for (User u: userRepository.findAllByUsername("alicebob")) {
-//				System.out.println(u);
-//			}
-//		};
 		return args -> {
-			for (ReimbursementRequest r: reimbursementRepository.findAllByUserID(1)) {
-				System.out.println(r);
+			for (User u: userRepository.findAllByEmail("ab@ab.com")) {
+				System.out.println(u);
 			}
 		};
+//		return args -> {
+//			for (ReimbursementRequest r: reimbursementRepository.findAllByUserID(1)) {
+//				System.out.println(r);
+//			}
+//		};
 	}
 }

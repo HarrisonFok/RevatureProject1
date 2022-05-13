@@ -81,8 +81,8 @@ public class ReimbursementController {
         return reimbursementService.getReimbursementById(reimbursementID);
     }
 
-    @PutMapping("{reimbursementID}/{action}")
-    public ResponseEntity respondToReimbursement(@RequestBody ReimbursementRequest reimbursementRequest, @PathVariable String action) throws InvalidOperationException {
+    @PutMapping("{reimbursementID}/{action}/{newManagerId}")
+    public ResponseEntity respondToReimbursement(@PathVariable int reimbursementID, @PathVariable String action, @PathVariable String newManagerId) throws InvalidOperationException {
 //        int userID = reimbursementRequest.getUserID();
 //        List<User> checkUser = userRepository.findAllByUserID(userID);
 //        if (checkUser.get(0).isEmployee()) {
@@ -99,7 +99,7 @@ public class ReimbursementController {
 //            e.printStackTrace();
 //            return ResponseEntity.internalServerError().body("Error saving new reimbursement request");
 //        }
-        return  reimbursementService.respondToReimbursement(reimbursementRequest, action);
+        return  reimbursementService.respondToReimbursement(reimbursementID, action, newManagerId);
     }
     //        Optional<ReimbursementRequest> r = reimbursementRepository.findById(reimbursementID);
     //        if (r.isPresent()) {

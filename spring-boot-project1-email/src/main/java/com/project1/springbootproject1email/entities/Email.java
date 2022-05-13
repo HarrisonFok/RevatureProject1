@@ -34,4 +34,8 @@ public class Email {
 
     @Column(name = "date")
     private Date date;
+
+//    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @JoinTable(name = "email")
+//    private User user;
 }

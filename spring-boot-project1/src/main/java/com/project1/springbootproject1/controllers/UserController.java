@@ -1,6 +1,7 @@
 package com.project1.springbootproject1.controllers;
 
 import com.project1.springbootproject1.entities.User;
+import com.project1.springbootproject1.exceptions.InvalidOperationException;
 import com.project1.springbootproject1.repositories.UserRepository;
 import com.project1.springbootproject1.service.UserService;
 import lombok.Setter;
@@ -36,12 +37,14 @@ public class UserController {
 //            e.printStackTrace();
 //            return ResponseEntity.internalServerError().body("Error adding a user");
 //        }
-        boolean success = userService.addUser(user);
-        if (success) {
-            return ResponseEntity.created(new URI("http://localhost/users/" + user.getUserID())).build();
-        } else {
-            return ResponseEntity.internalServerError().body("Error adding a user");
+        boolean success = false;
+        try {
+            success = userService.addUser(user);
+        } catch (InvalidOperationException e) {
+            e.printStackTrace();
         }
+        if (success) return ResponseEntity.created(new URI("http://localhost/users/" + user.getUserID())).build();
+        else return ResponseEntity.internalServerError().body("Error adding a user");
     }
 
     @GetMapping("{userID}")
@@ -53,9 +56,7 @@ public class UserController {
 //        }
 //        return ResponseEntity.notFound().build();
         Optional<User> user = userService.getUserById(userID);
-        if (user != null && user.isPresent()) {
-            return  ResponseEntity.ok(user);
-        }
+        if (user != null && user.isPresent()) { return  ResponseEntity.ok(user); }
         return ResponseEntity.notFound().build();
     }
 }
